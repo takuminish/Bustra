@@ -24,7 +24,7 @@ public class GameWindow extends Window{
 		int dropDiameter = environment.getDropDiameter();              // ドロップの大きさを取得するよ
 		board = new Board(boardWidth,boardHeight,dropDiameter);        // 横6ドロップ、縦5ドロップ、ドロップの直径80の盤面を作るよ
 		manager = new GameManager(board);        // GameManagerクラスを定義するよ
-		gamePlayer = new GamePlayer();           // GamePlayerクラスを定義するよ
+		gamePlayer = new GamePlayer(dropDiameter);           // GamePlayerクラスを定義するよ
 		addMouseListener(gamePlayer);            // MouseListenerを使えるようにするよ
 		addMouseMotionListener(gamePlayer);      // MouseMotionListenerを使えるようにするよ
 	}

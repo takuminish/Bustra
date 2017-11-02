@@ -6,16 +6,19 @@ import Base.Player;
 
 public class GamePlayer extends Player{
 
-	public GamePlayer() {
+	private int dropDiameter;
+	
+	public GamePlayer(int diameter) {
 		super();
+		this.dropDiameter = diameter;
 	}
 	
 	// マウスが押された時
     public void mousePressed(MouseEvent e){
     	int mouseX = e.getX();
     	int mouseY = e.getY();
-    	
-    	System.out.println(mouseX + "," + mouseY);
+    	int dropX = mouseX / this.dropDiameter;
+    	int dropY = mouseY / this.dropDiameter;
     }
        
     // マウスが押された状態から離れた時

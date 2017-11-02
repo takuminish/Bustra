@@ -9,13 +9,12 @@ import Game.Board;
 // コンボの判定、残り時間の測定はこのクラスで行うよ
 public class GameManager {
 
-	private Board board;             // Dropクラスの2次元配列
-	
+	private Board board;             // Bpardクラスのインスタンス
+	Drop drop;
 	
 	public GameManager(final Board board) {
 		int[] x = new int[3];
 		int[] y = new int[3];
-		
 		x[0] = y[0] = 1;
 		x[1] = y[1] = 2;
 		x[2] = y[2] = 3;

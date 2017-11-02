@@ -63,6 +63,7 @@ public class Board extends Panel{
     	Drop drop;  // Dropクラスのインスタンスを定義しておくよ
     	int dropX;  // ドロップのx座標
     	int dropY;  // ドロップのy座標
+    	
     	// for文により１つずつドロップを無効ドロップに変えるよ
     	for (int k1 = 0; k1 < x.length; k1++) {
     	    drop = this.board.get(y[k1]).get(x[k1]);  // 二次元配列の1要素を格納するよ
@@ -70,6 +71,11 @@ public class Board extends Panel{
     	    dropY = y[k1] * this.dropDiameter;        // ドロップのy座標を格納するよ
 		    this.board.get(y[k1]).set(x[k1], drop.delete(dropX, dropY)); // 無効ドロップに変更するよ
         }
+    }
+    
+    // 盤面の状態を返すよ
+    public ArrayList<ArrayList<Drop>> getBoard() {
+    	return this.board;
     }
 
 }

@@ -57,5 +57,16 @@ public class Board extends Panel{
 		return (int)(Math.random()* 5);
 	}
 
-	
+	// ”Õ–Ê‚Ìƒhƒƒbƒv‚ğÁ‚·‚æ
+    public void dropDelete(int x[],int y[]) {
+    	
+    	Drop drop;
+    	
+    	for (int k1 = 0; k1 < x.length; k1++) {
+    		for (int k2 = 0; k2 < y.length; k2++) {
+    			 drop = this.board.get(k1).get(k2);
+				 this.board.get(k1).set(k2, drop.delete(k2 * this.dropDiameter, k1 * this.dropDiameter));
+    		}
+    	}
+    }
 }

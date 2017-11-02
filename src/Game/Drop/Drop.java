@@ -50,8 +50,9 @@ public class Drop extends Panel{
 	}
 	
 	// ƒhƒƒbƒv‚ğíœ‚·‚é‚æ
-	public void delete() {
-		
+	public InvisibleDrop delete(int x,int y) {
+		InvisibleDrop drop = new InvisibleDrop(x,y);
+		return drop;
 	}
 	
 

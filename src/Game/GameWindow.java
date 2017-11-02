@@ -14,7 +14,7 @@ public class GameWindow extends Window{
 
 	public GameWindow() {
 		super();		
-		board = new Board(6,5);        // 横6ドロップ、縦5ドロップの盤面を作るよ
+		board = new Board(6,5,80);        // 横6ドロップ、縦5ドロップ、ドロップの直径80の盤面を作るよ
 	}
 	// ゲーム画面を表示するよ
 	@Override

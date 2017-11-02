@@ -60,13 +60,12 @@ public class Board extends Panel{
 	// 盤面のドロップを消すよ
     public void dropDelete(int x[],int y[]) {
     	
-    	Drop drop;
-    	
+    	Drop drop;                                 // Dropクラスのインスタンスを定義しておくよ
+    	// for文により１つずつドロップを無効ドロップに変えるよ
     	for (int k1 = 0; k1 < x.length; k1++) {
-    		for (int k2 = 0; k2 < y.length; k2++) {
-    			 drop = this.board.get(k1).get(k2);
-				 this.board.get(k1).set(k2, drop.delete(k2 * this.dropDiameter, k1 * this.dropDiameter));
-    		}
-    	}
+    	    drop = this.board.get(y[k1]).get(x[k1]);  // 二次元配列の1要素を格納するよ
+		    this.board.get(y[k1]).set(x[k1], drop.delete(x[k1] * this.dropDiameter, y[k1] * this.dropDiameter)); // 無効ドロップに変更するよ
+        }
     }
+
 }

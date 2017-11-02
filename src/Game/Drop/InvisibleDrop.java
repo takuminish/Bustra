@@ -7,6 +7,7 @@ import java.io.File;
 import Game.Drop.Drop;
 
 // Dropクラスを継承して無効ドロップクラスを作るよ
+// 無効だから画像は持たないよ
 public class InvisibleDrop extends Drop{
 	
 	// コンストラクタ

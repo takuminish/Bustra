@@ -11,10 +11,12 @@ import Game.Drop.FireDrop;
 public class GameWindow extends Window{
 	
 	private Board board;               // Boardクラスを持つよ
+	private GameManager manager;
 
 	public GameWindow() {
 		super(800,600);	                  // ゲーム画面の大きさを指定するよ	
 		board = new Board(6,5,80);        // 横6ドロップ、縦5ドロップ、ドロップの直径80の盤面を作るよ
+		manager = new GameManager(board);
 	}
 	// ゲーム画面を表示するよ
 	@Override

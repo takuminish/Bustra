@@ -28,8 +28,7 @@ public class Board extends Panel{
     		 this.board.add(new ArrayList<Drop>());       // Dropクラスの配列の中にDropクラスの配列を作るよ
     		 for (int k2 = 0; k2 < this.width; k2++) {
     			 // ランダムな値によってどのドロップにするか決めるよ
-    			 int ran = (int)(Math.random()* 5);
-    			 switch(ran) {
+    			 switch(random()) {
     			 case 0: this.board.get(k1).add(new FireDrop(k2 * 80, k1 * 80)); break;  // ランダムの値が0だったら火ドロップを格納するよ 
     			 case 1: this.board.get(k1).add(new WaterDrop(k2 * 80, k1 * 80)); break; // ランダムの値が1だったら水ドロップを格納するよ   
     			 case 2: this.board.get(k1).add(new WoodDrop(k2 * 80, k1 * 80)); break;  // ランダムの値が2だったら木ドロップを格納するよ
@@ -50,5 +49,11 @@ public class Board extends Panel{
 			}
 		}
 	}
+	
+	// int型のランダムな値を返すよ
+	public int random() {
+		return (int)(Math.random()* 5);
+	}
+
 	
 }

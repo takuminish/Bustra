@@ -1,3 +1,4 @@
+// Game.Dropパッケージ
 package Game.Drop;
 
 import java.awt.Graphics;

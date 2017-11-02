@@ -38,16 +38,19 @@ public class Drop extends Panel{
 		return image;                            // image変数を返すよ
 	}
 	
+	// 横の長さを取ってくるよ
 	public int getWidth() {
 		return this.WIDTH;
 	}
-	
+	// 縦の長さを取ってくるよ
 	public int getHeight() {
 		return this.HEIGHT;
 	}
-	
-	public void paint(Graphics g) {
-		g.drawImage(this.image,0,0,this.getWidth(),this.getHeight(),null);
+
+	// ドロップを表示するよ
+	@Override
+	public void paintComponent(Graphics g) {
+		g.drawImage(this.image,0,0,this.getWidth(),this.getHeight(),null); //image変数の画像を表示するよ
 	}
 	
 

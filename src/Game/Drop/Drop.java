@@ -13,8 +13,8 @@ import Base.Panel;
 public class Drop extends Panel{
 	
 	protected int id;                            // Dropの種類ごとにIDを割り振るよ
-	private final int WIDTH = 80;                // Dropの横の大きさだよ
-	private final int HEIGHT = 80;               // Dropの縦の大きさだよ
+	private final int DIAMETER = 80;                // Dropの直径の大きさだよ
+
 	private int x;                               // Dropはx座標を持つよ
 	private int y;                               // Dropはy座標を持つよ
 	protected BufferedImage image;               // この変数に対応する画像が入るよ
@@ -23,7 +23,7 @@ public class Drop extends Panel{
 	public Drop(int x, int y) {
 		this.x = x;                              // x座標を指定するよ
 		this.y = y;                              // y座標を指定するよ
-		this.setBounds(x, y, WIDTH, HEIGHT);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
+		this.setBounds(x, y, DIAMETER, DIAMETER);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
 	}
 	
 	// 画像をimage変数に入れる(画像ファイルを引数とする)
@@ -38,19 +38,15 @@ public class Drop extends Panel{
 		return image;                            // image変数を返すよ
 	}
 	
-	// 横の長さを取ってくるよ
-	public int getWidth() {
-		return this.WIDTH;
-	}
-	// 縦の長さを取ってくるよ
-	public int getHeight() {
-		return this.HEIGHT;
+	// Dropの直径の長さを取ってくるよ
+	public int getDiameter() {
+		return this.DIAMETER;
 	}
 
 	// ドロップを表示するよ
 	@Override
 	public void paintComponent(Graphics g) {
-		g.drawImage(this.image,0,0,this.getWidth(),this.getHeight(),null); //image変数の画像を表示するよ
+		g.drawImage(this.image,0,0,this.getDiameter(),this.getDiameter(),null); //image変数の画像を表示するよ
 	}
 	
 

@@ -21,9 +21,9 @@ public class Drop extends Panel{
 	
 	// コンストラクタ
 	public Drop(int x, int y) {
-		this.x = x;                              // x座標を指定するよ
-		this.y = y;                              // y座標を指定するよ
-		this.setBounds(x, y, DIAMETER, DIAMETER);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
+		this.x = x;                                             // x座標を指定するよ
+		this.y = y;                                             // y座標を指定するよ
+		this.setBounds(this.x, this.y, DIAMETER, DIAMETER);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
 	}
 	
 	// 画像をimage変数に入れる(画像ファイルを引数とする)
@@ -42,10 +42,16 @@ public class Drop extends Panel{
 	public int getDiameter() {
 		return this.DIAMETER;
 	}
+	
+	// ドロップの状態を返すよ
+	public boolean gethold() {
+		return this.hold;
+	}
 
 	// ドロップを表示するよ
 	@Override
 	public void paintComponent(Graphics g) {
+		this.setBounds(this.x, this.y, DIAMETER, DIAMETER);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
 		g.drawImage(this.image,0,0,this.getDiameter(),this.getDiameter(),null); //image変数の画像を表示するよ
 	}
 	
@@ -54,6 +60,36 @@ public class Drop extends Panel{
 		InvisibleDrop drop = new InvisibleDrop(x,y);
 		return drop;
 	}
+	
+	// ドロップを持つよ
+	public void hold(int x, int y) {
+		this.hold = true;
+		this.x = x;
+		this.y = y;
+		repaint();
+	}
+	
+	
+	// ドロップを動かすよ
+	public void move(int x, int y) {
+		if (this.hold == true) {
+		    this.x = x;
+		    this.y = y;
+		}
+		repaint();
+	}
+	
+	// ドロップを放すよ
+		public void lost(int x, int y) {
+			if (this.hold == true) {
+			    this.x = x;
+			    this.y = y;
+			}
+			this.hold = false;
+			repaint();
+		}
+	
+	
 	
 	
 

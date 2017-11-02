@@ -16,13 +16,14 @@ public class Board extends Panel{
 	private final int width;                              // 盤面の横の長さ
 	private final int height;                             // 盤面の縦の長さ
 	private final int dropDiameter;                       // ドロップの直径の長さ
+	private GameEnvironment environment;
 	
 	// コンストラクタ
-	public Board(int width, int height, int diameter) {
-		
-		this.width = width;                               // 指定した値を横のドロップの数にするよ
-		this.height = height;                             // 指定した値を縦のドロップの数にするよ
-		this.dropDiameter = diameter;                     // 指定した値をドロップの直径の長さにするよ
+	public Board() {
+		environment = new GameEnvironment();
+        this.width = environment.getBourdWidth();                // 盤面の横のドロップの数を取得するよ 
+	    this.height = environment.getBourdHeight();              // 盤面の縦のドロップの数を取得するよ
+		this.dropDiameter = environment.getDropDiameter();            // ドロップの大きさを取得するよ
     	 board = new ArrayList<ArrayList<Drop>>();        // Dropクラスの2次元配列を定義するよ
     	 
     	 // 二重for文で二次元配列にDropクラスの子クラス(火、水、木、闇、光)を入れていくよ
@@ -43,6 +44,8 @@ public class Board extends Panel{
 	// 盤面を表示するよ
 	@Override
 	public void paintComponent(Graphics g) {
+		
+		g.clearRect(0, 0, getWidth(), getHeight());
 		this.setBounds(0, 0, this.width * this.dropDiameter, this.height * this.dropDiameter);  // 指定した位置と大きさで盤面を表示するよ
 		// 二重for文でDropを表示していくよ
 		for(int k1 = 0; k1 < this.height; k1++) {

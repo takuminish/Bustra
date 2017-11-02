@@ -7,7 +7,7 @@ import Base.Window;
 import Game.Drop.FireDrop;
 
 // Windowクラスを継承したGameWindowクラスを作るよ
-// ゲーム画面を表示するクラスだよ(GameWindowクラスはBoardクラスとFieldクラスを持つ)
+// ゲーム画面を表示するクラスだよ(GameWindowクラスはBoardクラス、Fieldクラス、GameManagerクラスを持つ)
 public class GameWindow extends Window{
 	
 	private Board board;               // Boardクラスを持つよ
@@ -16,7 +16,7 @@ public class GameWindow extends Window{
 	public GameWindow() {
 		super(800,600);	                  // ゲーム画面の大きさを指定するよ	
 		board = new Board(6,5,80);        // 横6ドロップ、縦5ドロップ、ドロップの直径80の盤面を作るよ
-		manager = new GameManager(board);
+		manager = new GameManager(board); // GameManagerクラスを定義するよ
 	}
 	// ゲーム画面を表示するよ
 	@Override

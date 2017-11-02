@@ -10,7 +10,6 @@ import Game.Board;
 public class GameManager {
 
 	private Board board;             // Bpardクラスのインスタンス
-	Drop drop;
 	
 	public GameManager(final Board board) {
 		int[] x = new int[3];

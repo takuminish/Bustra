@@ -20,4 +20,9 @@ public class GameManager {
 		this.board = board;
 		this.board.dropDelete(x,y);
 	}
+	
+	public void dropHold(int x,int y) {
+		
+	}
+	}
 }

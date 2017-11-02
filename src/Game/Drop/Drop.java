@@ -14,10 +14,10 @@ public class Drop extends Panel{
 	
 	protected int id;                            // Dropの種類ごとにIDを割り振るよ
 	private final int DIAMETER = 80;                // Dropの直径の大きさだよ
-
 	private int x;                               // Dropはx座標を持つよ
 	private int y;                               // Dropはy座標を持つよ
 	protected BufferedImage image;               // この変数に対応する画像が入るよ
+	private Boolean hold = false;                // 現在マウスで持っているかどうかの状態を表す             
 	
 	// コンストラクタ
 	public Drop(int x, int y) {
@@ -54,6 +54,7 @@ public class Drop extends Panel{
 		InvisibleDrop drop = new InvisibleDrop(x,y);
 		return drop;
 	}
+	
 	
 
 }

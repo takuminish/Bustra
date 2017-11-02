@@ -13,14 +13,13 @@ public class GameWindow extends Window{
 	private Board board;               // Boardクラスを持つよ
 
 	public GameWindow() {
-		super();		
+		super(800,600);	                  // ゲーム画面の大きさを指定するよ	
 		board = new Board(6,5,80);        // 横6ドロップ、縦5ドロップ、ドロップの直径80の盤面を作るよ
 	}
 	// ゲーム画面を表示するよ
 	@Override
     public void paint(Graphics g){
         super.paint(g);
-        this.setBounds(0, 0, 800, 600);  // 指定した位置と大きさの位置に表示するよ
         this.add(this.board);            // 盤面をゲーム画面に乗せるよ
         
     }

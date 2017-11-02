@@ -49,5 +49,10 @@ public class Drop extends Panel{
 		g.drawImage(this.image,0,0,this.getDiameter(),this.getDiameter(),null); //image変数の画像を表示するよ
 	}
 	
+	// ドロップを削除するよ
+	public void delete() {
+		
+	}
+	
 
 }

@@ -18,11 +18,11 @@ public class Board extends Panel{
 	private final int dropDiameter;                       // ドロップの直径の長さ
 	
 	// コンストラクタ
-	public Board(int width, int height, int dropdiameter) {
+	public Board(int width, int height, int diameter) {
 		
 		this.width = width;                               // 指定した値を横のドロップの数にするよ
 		this.height = height;                             // 指定した値を縦のドロップの数にするよ
-		this.dropDiameter = dropdiameter;                 // 指定した値をドロップの直径の長さにするよ
+		this.dropDiameter = diameter;                     // 指定した値をドロップの直径の長さにするよ
     	 board = new ArrayList<ArrayList<Drop>>();        // Dropクラスの2次元配列を定義するよ
     	 
     	 // 二重for文で二次元配列にDropクラスの子クラス(火、水、木、闇、光)を入れていくよ

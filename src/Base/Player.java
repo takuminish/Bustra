@@ -11,8 +11,7 @@ public class Player extends Panel implements MouseListener,MouseMotionListener{
 	
 	// コンストラクタ
 	public Player() {
-		addMouseListener(this);            // MouseListenerを使えるようにするよ
-		addMouseMotionListener(this);      // MouseMotionListenerを使えるようにするよ
+
 	}
 	
 	// マウスがパネルの上に乗った時(今回は使わない)

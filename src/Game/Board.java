@@ -80,5 +80,44 @@ public class Board extends Panel{
     public ArrayList<ArrayList<Drop>> getBoard() {
     	return this.board;
     }
+    
+    // 持っているドロップのX座標を返すよ
+    public int getHoldDropX() {
+    	
+    	int x = 0;
+    	for (int k1 = 0; k1 < this.height; k1++) {
+    		for (int k2 = 0; k2 < this.width; k2++) {
+    			if (this.board.get(k1).get(k2).getHold() == true) {
+    				x = k2;
+    			}
+    		}
+    	}
+    	return x;
+    }
+    
+ // 持っているドロップのY座標を返すよ
+    public int getHoldDropY() {
+    	
+    	int y = 0;
+    	for (int k1 = 0; k1 < this.height; k1++) {
+    		for (int k2 = 0; k2 < this.width; k2++) {
+    			if (this.board.get(k1).get(k2).getHold() == true) {
+    				y = k1;
+    			}
+    		}
+    	}
+    	return y;
+    }
+    
+    // 盤面のドロップを入れ替えるよ
+    public void dropSwap(int x1, int y1, int x2, int y2) {
+    	Drop tmp;
+    	
+    	tmp = this.board.get(y1).get(x1);
+    	this.board.get(y1).set(x1,this.board.get(y2).get(x2));
+    	this.board.get(y2).set(x2,tmp);
+    	
+    	this.board.get(y1).get(x1).move(x1 * this.dropDiameter, y1 * this.dropDiameter);
+    }
 
 }

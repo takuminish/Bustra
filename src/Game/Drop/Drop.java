@@ -44,7 +44,7 @@ public class Drop extends Panel{
 	}
 	
 	// ドロップの状態を返すよ
-	public boolean gethold() {
+	public boolean getHold() {
 		return this.hold;
 	}
 
@@ -72,10 +72,9 @@ public class Drop extends Panel{
 	
 	// ドロップを動かすよ
 	public void move(int x, int y) {
-		if (this.hold == true) {
 		    this.x = x;
 		    this.y = y;
-		}
+		
 		repaint();
 	}
 	

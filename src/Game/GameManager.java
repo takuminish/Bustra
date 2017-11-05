@@ -36,22 +36,25 @@ public class GameManager {
 	// 持っているドロップをマウスの座標を参照して動かすよ
 	public void MoveManagement(int mouseX, int mouseY) {
 		
+		// 左と入れ替えるよ
 		if (mouseX < this.dropX * this.dropDiameter) {
-			System.out.println("a");
-			this.board.dropSwap(this.dropX, this.dropY, this.dropX-1, this.dropY);
-		} else if (mouseX > this.dropX * this.dropDiameter + this.dropDiameter) {
-			System.out.println("b");
-			this.board.dropSwap(this.dropX, this.dropY, this.dropX+1, this.dropY);
-		} else if (mouseY < this.dropY * this.dropDiameter) {
-			System.out.println("c");
-			this.board.dropSwap(this.dropX, this.dropY, this.dropX, this.dropY-1);
-		} else if (mouseY > this.dropY * this.dropDiameter + this.dropDiameter ) {
-			System.out.println("d");
-			this.board.dropSwap(this.dropX, this.dropY, this.dropX, this.dropY+1);
+			this.board.dropSwap(this.dropX, this.dropY, this.dropX-1, this.dropY); // 左のドロップと入れ替える
+		} 
+		// 右と入れ替えるよ
+		else if (mouseX > this.dropX * this.dropDiameter + this.dropDiameter) {
+			this.board.dropSwap(this.dropX, this.dropY, this.dropX+1, this.dropY); // 右のドロップと入れ替える
+		} 
+		// 上と入れ替えるよ
+		else if (mouseY < this.dropY * this.dropDiameter) {
+			this.board.dropSwap(this.dropX, this.dropY, this.dropX, this.dropY-1); // 上のドロップと入れ替える
+		} 
+		// 下と入れ替えるよ
+		else if (mouseY > this.dropY * this.dropDiameter + this.dropDiameter ) {
+			this.board.dropSwap(this.dropX, this.dropY, this.dropX, this.dropY+1); // 下のドロップと入れ替える
 		}
 
-		this.dropX = board.getHoldDropX();
-		this.dropY = board.getHoldDropY();
+		this.dropX = board.getHoldDropX();  // 現在の持っているドロップのX座標を取ってくるよ
+		this.dropY = board.getHoldDropY();  // 現在の持っているドロップのY座標を取ってくるよ
 		board.getBoard().get(this.dropY).get(this.dropX).move(mouseX - (this.dropDiameter / 2),mouseY - (this.dropDiameter / 2));  // ドロップを動かすよ
 		
 	}

@@ -85,6 +85,7 @@ public class Board extends Panel{
     public int getHoldDropX() {
     	
     	int x = 0;
+    	// 二重for文により持っているドロップ(drop.holdがtrue)を探し、X座標を返すよ
     	for (int k1 = 0; k1 < this.height; k1++) {
     		for (int k2 = 0; k2 < this.width; k2++) {
     			if (this.board.get(k1).get(k2).getHold() == true) {
@@ -99,6 +100,7 @@ public class Board extends Panel{
     public int getHoldDropY() {
     	
     	int y = 0;
+    	// 二重for文により持っているドロップ(drop.holdがtrue)を探し、Y座標を返すよ
     	for (int k1 = 0; k1 < this.height; k1++) {
     		for (int k2 = 0; k2 < this.width; k2++) {
     			if (this.board.get(k1).get(k2).getHold() == true) {
@@ -111,13 +113,14 @@ public class Board extends Panel{
     
     // 盤面のドロップを入れ替えるよ
     public void dropSwap(int x1, int y1, int x2, int y2) {
-    	Drop tmp;
+    	Drop tmp; // 入れ替え用の一時インスタンス
     	
-    	tmp = this.board.get(y1).get(x1);
-    	this.board.get(y1).set(x1,this.board.get(y2).get(x2));
+    	// 位置の入れ替え
+    	tmp = this.board.get(y1).get(x1);                      
+    	this.board.get(y1).set(x1,this.board.get(y2).get(x2)); 
     	this.board.get(y2).set(x2,tmp);
     	
-    	this.board.get(y1).get(x1).move(x1 * this.dropDiameter, y1 * this.dropDiameter);
+    	this.board.get(y1).get(x1).move(x1 * this.dropDiameter, y1 * this.dropDiameter);  // ドロップの移動を反映
     }
 
 }

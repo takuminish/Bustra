@@ -8,12 +8,14 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import Base.Panel;
+import Game.GameEnvironment;
 
 // Panelクラスを継承したDropクラスを作るよ
 public class Drop extends Panel{
 	
+	private GameEnvironment environment;
 	protected int id;                            // Dropの種類ごとにIDを割り振るよ
-	private final int DIAMETER = 80;                // Dropの直径の大きさだよ
+	private final int diameter;                  // Dropの直径の大きさだよ
 	private int x;                               // Dropはx座標を持つよ
 	private int y;                               // Dropはy座標を持つよ
 	protected BufferedImage image;               // この変数に対応する画像が入るよ
@@ -21,9 +23,11 @@ public class Drop extends Panel{
 	
 	// コンストラクタ
 	public Drop(int x, int y) {
+		environment = new GameEnvironment();
 		this.x = x;                                             // x座標を指定するよ
 		this.y = y;                                             // y座標を指定するよ
-		this.setBounds(this.x, this.y, DIAMETER, DIAMETER);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
+		this.diameter = environment.getDropDiameter();
+		this.setBounds(this.x, this.y, this.diameter, this.diameter);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
 	}
 	
 	// 画像をimage変数に入れる(画像ファイルを引数とする)
@@ -40,7 +44,7 @@ public class Drop extends Panel{
 	
 	// Dropの直径の長さを取ってくるよ
 	public int getDiameter() {
-		return this.DIAMETER;
+		return this.diameter;
 	}
 	
 	// ドロップの状態を返すよ
@@ -51,14 +55,16 @@ public class Drop extends Panel{
 	// ドロップを表示するよ
 	@Override
 	public void paintComponent(Graphics g) {
-		this.setBounds(this.x, this.y, DIAMETER, DIAMETER);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
+		
+		this.setBounds(this.x, this.y, this.diameter, this.diameter);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
 		g.drawImage(this.image,0,0,this.getDiameter(),this.getDiameter(),null); //image変数の画像を表示するよ
 	}
 	
 	// ドロップを削除するよ
-	public InvisibleDrop delete(int x,int y) {
-		InvisibleDrop drop = new InvisibleDrop(x,y);
-		return drop;
+	public InvisibleDrop setInvisible() {
+		this.image = null;
+		InvisibleDrop invisibleDrop = new InvisibleDrop(this.x,this.y);
+		return invisibleDrop;
 	}
 	
 	// ドロップを持つよ

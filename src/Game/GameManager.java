@@ -23,6 +23,10 @@ public class GameManager {
 		this.BoardX = this.environment.getBourdWidth();
 		this.BoardY = this.environment.getBourdHeight();
 		this.dropDiameter = this.environment.getDropDiameter();
+		ArrayList<Drop> drop = new ArrayList<Drop>();
+	//	drop.add(this.board.getBoard().get(1).get(1));
+	//	drop.add(this.board.getBoard().get(2).get(2));
+	//	this.board.dropDelete(drop);
 	}
 	
 	// マウスの座標から持つドロップを決定しドロップを持つよ
@@ -66,4 +70,28 @@ public class GameManager {
 			
 	}
 	
+	// コンボ判定を行うよ
+	public ArrayList<Drop> comboDicision() {
+		ArrayList<Drop> tmp = new ArrayList<Drop>();    // コンボの結果消すドロップを格納するよ
+		
+		//---- みたこーが作るとこ
+
+		
+		
+		return tmp;
+	}
+	
+	// ドロップを削除
+	public void dropDelete(ArrayList<Drop> drop) {
+		
+		this.board.dropDelete(drop);
+	}
+	
+	// 時間を測定するよ
+	// ナカンディが作るところ
+	/*
+	hogehoge() {
+		
+	}
+	*/
 }

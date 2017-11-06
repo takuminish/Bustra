@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import Base.Panel;
-import Game.Drop.WaterDrop;
 import Game.Drop.*;
 
 // Panelクラスを継承したBoardクラスを作るよ
@@ -60,21 +59,6 @@ public class Board extends Panel{
 		return (int)(Math.random()* 5);
 	}
 
-	// 盤面のドロップを消すよ
-    public void dropDelete(int x[],int y[]) {
-    	
-    	Drop drop;  // Dropクラスのインスタンスを定義しておくよ
-    	int dropX;  // ドロップのx座標
-    	int dropY;  // ドロップのy座標
-    	
-    	// for文により１つずつドロップを無効ドロップに変えるよ
-    	for (int k1 = 0; k1 < x.length; k1++) {
-    	    drop = this.board.get(y[k1]).get(x[k1]);  // 二次元配列の1要素を格納するよ
-    	    dropX = x[k1] * this.dropDiameter;        // ドロップのx座標を格納するよ
-    	    dropY = y[k1] * this.dropDiameter;        // ドロップのy座標を格納するよ
-		    this.board.get(y[k1]).set(x[k1], drop.delete(dropX, dropY)); // 無効ドロップに変更するよ
-        }
-    }
     
     // 盤面の状態を返すよ
     public ArrayList<ArrayList<Drop>> getBoard() {
@@ -121,6 +105,26 @@ public class Board extends Panel{
     	this.board.get(y2).set(x2,tmp);
     	
     	this.board.get(y1).get(x1).move(x1 * this.dropDiameter, y1 * this.dropDiameter);  // ドロップの移動を反映
+    }
+    
+ // 盤面のドロップを消すよ
+    public void dropDelete(ArrayList<Drop> drop) {
+    	
+    	Drop tmp;
+    	int dropX;  // ドロップのx座標
+    	int dropY;  // ドロップのy座標
+    	
+    	// for文により１つずつドロップを無効ドロップに変えるよ
+    	for (int k1 = 0; k1 < drop.size(); k1++) {
+    		dropX = drop.get(k1).getX();
+    		dropY = drop.get(k1).getY();
+    		System.out.println(dropX + "," + dropY);
+    	    tmp = this.board.get(dropY / this.dropDiameter).get(dropX / this.dropDiameter);  // 二次元配列の1要素を格納するよ
+		    this.board.get(dropY / this.dropDiameter).set(dropX / this.dropDiameter, tmp.setInvisible());// 無効ドロップに変更するよ
+		    this.board.get(dropY / this.dropDiameter).get(dropX / this.dropDiameter).move(dropX,dropY);
+		    
+        }
+    	repaint();
     }
 
 }

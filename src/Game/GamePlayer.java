@@ -46,6 +46,8 @@ public class GamePlayer extends Player{
 	
 	// GameManagerのメソッドを呼び出してドロップを放すよ
 		public void dropLost() {
+			this.manager.dropDelete(this.manager.comboDicision());
+			
 		    this.manager.LostManagement();
 		}
 	

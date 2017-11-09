@@ -5,13 +5,14 @@ import java.awt.event.MouseEvent;
 
 import Base.GameEnvironment;
 import Base.Player;
+import Game.Manager.BoardManager;
 
 public class GamePlayer extends Player{
 
-	private GameManager manager;
+	private BoardManager manager;
 	private GameEnvironment environment;
 	
-	public GamePlayer(GameManager manager) {
+	public GamePlayer(BoardManager manager) {
 		super();
 		environment = new GameEnvironment();
 		this.manager = manager;

@@ -1,4 +1,4 @@
-package Game;
+package Game.Manager;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import Game.Board;
 
 // 盤面の管理を行うよ
 // コンボの判定、残り時間の測定はこのクラスで行うよ
-public class GameManager {
+public class BoardManager {
 
 	private Board board;                  // Bpardクラスのインスタンス
 	private GameEnvironment environment;  // ゲームに必要な値を得るインスタンス
@@ -18,7 +18,7 @@ public class GameManager {
 	private int dropX;
 	private int dropY;
 	
-	public GameManager(Board board) {
+	public BoardManager(Board board) {
 		environment = new GameEnvironment();
 		this.board = board;
 		this.BoardX = this.environment.getBourdWidth();

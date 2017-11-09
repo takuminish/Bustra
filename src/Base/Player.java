@@ -1,5 +1,7 @@
 package Base;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -7,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
 // Panelクラスを継承し、マウス操作を可能にしたPlayerクラスを作るよ
-public class Player extends Panel implements MouseListener,MouseMotionListener{
+public class Player extends Panel implements MouseListener,MouseMotionListener, KeyListener{
 	
 	// コンストラクタ
 	public Player() {
@@ -34,4 +36,22 @@ public class Player extends Panel implements MouseListener,MouseMotionListener{
 
     // マウスを動かした時(今回は使わない)
     public void mouseMoved(MouseEvent e){}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }

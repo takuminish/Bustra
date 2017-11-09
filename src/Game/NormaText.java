@@ -7,9 +7,9 @@ import javax.swing.JLabel;
 
 public class NormaText extends JLabel{
 
-	public NormaText() {
-		super("‚ ‚ ‚ ‚ ");
-    	this.setForeground(Color.RED);
+	public NormaText(String str) {
+		super(str);
+    	this.setForeground(Color.WHITE);
 	}
 
 }

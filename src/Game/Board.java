@@ -1,6 +1,7 @@
 // Gameパッケージ
 package Game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -46,8 +47,19 @@ public class Board extends Panel{
 	@Override
 	public void paintComponent(Graphics g) {
 		
-		g.clearRect(0, 0, getWidth(), getHeight());
+		
 		this.setBounds(0, this.environment.getBoardPosition(), this.width * this.dropDiameter, this.height * this.dropDiameter);  // 指定した位置と大きさで盤面を表示するよ
+		for(int k1 = 0; k1 < this.height; k1++) {
+			for (int k2 = 0; k2 < this.width; k2++) {
+				if (((k1 * this.height + k2) % 2) == 0) {
+					g.setColor(new Color(124,96,53));
+				} else {
+					g.setColor(new Color(107,73,45));
+				}
+				g.fillRect(k2 * this.dropDiameter, k1 * this.dropDiameter , this.dropDiameter, this.dropDiameter);
+			}
+		}
+		
 		// 二重for文でDropを表示していくよ
 		for(int k1 = 0; k1 < this.height; k1++) {
 			for (int k2 = 0; k2 < this.width; k2++) {

@@ -9,21 +9,22 @@ import Base.Panel;
 import Game.Enemy.Pisaro;
 
 public class Field extends Panel{
-    private NormaText norma;
-    private JLabel text;
+
 	private Pisaro pisaro;
+	private TextFrame frame;
     
     public Field() {
-    	this.norma = new NormaText();
-    	this.add(this.norma);
-	    pisaro = new Pisaro();
+
+	    this.pisaro = new Pisaro();
         this.add(this.pisaro);
+        this.frame = new TextFrame();
+        this.add(this.frame);
     }
     
     public void paintComponent(Graphics g) {
     	g.setColor(Color.BLACK);
     	g.fillRect(0, 0, getWidth(), getHeight());
-    	this.setBounds(0, 0, 377, 250);  // 指定した位置と大きさで盤面を表示するよ
+    	this.setBounds(0, 0, 377, 260);  // 指定した位置と大きさで盤面を表示するよ
 
     }
 }

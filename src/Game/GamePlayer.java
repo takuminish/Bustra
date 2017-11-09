@@ -1,5 +1,6 @@
 package Game;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import Base.GameEnvironment;
@@ -34,6 +35,13 @@ public class GamePlayer extends Player{
     	int mouseY = e.getY() - this.environment.getBoardPosition();
     	dropMove(mouseX,mouseY);
     }
+    
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if ( e.getKeyCode() == KeyEvent.VK_ENTER ) {
+	    	System.out.println("enter");
+	    }
+	}
     
     // GameManagerのメソッドを呼び出してドロップを持つよ
 	public void dropHold(int mouseX,int mouseY) {

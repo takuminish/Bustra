@@ -26,7 +26,8 @@ public class GameWindow extends Window{
 		gamePlayer = new GamePlayer(manager);           // GamePlayerクラスを定義するよ
 		addMouseListener(gamePlayer);            // MouseListenerを使えるようにするよ
 		addMouseMotionListener(gamePlayer);      // MouseMotionListenerを使えるようにするよ
-
+		addKeyListener(gamePlayer);      // MouseMotionListenerを使えるようにするよ
+		setFocusable(true);
 	}
 	// ゲーム画面を表示するよ
 	@Override

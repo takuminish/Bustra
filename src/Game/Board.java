@@ -4,6 +4,8 @@ package Game;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+
+import Base.GameEnvironment;
 import Base.Panel;
 import Game.Drop.*;
 
@@ -45,7 +47,7 @@ public class Board extends Panel{
 	public void paintComponent(Graphics g) {
 		
 		g.clearRect(0, 0, getWidth(), getHeight());
-		this.setBounds(0, 0, this.width * this.dropDiameter, this.height * this.dropDiameter);  // 指定した位置と大きさで盤面を表示するよ
+		this.setBounds(0, this.environment.getBoardPosition(), this.width * this.dropDiameter, this.height * this.dropDiameter);  // 指定した位置と大きさで盤面を表示するよ
 		// 二重for文でDropを表示していくよ
 		for(int k1 = 0; k1 < this.height; k1++) {
 			for (int k2 = 0; k2 < this.width; k2++) {

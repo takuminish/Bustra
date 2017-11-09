@@ -7,8 +7,8 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import Base.GameEnvironment;
 import Base.Panel;
-import Game.GameEnvironment;
 
 // Panelクラスを継承したDropクラスを作るよ
 public class Drop extends Panel{

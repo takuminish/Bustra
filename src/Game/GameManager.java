@@ -2,6 +2,7 @@ package Game;
 
 import java.util.ArrayList;
 
+import Base.GameEnvironment;
 import Game.Drop.Drop;
 import Game.Board;
 

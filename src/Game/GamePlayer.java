@@ -2,6 +2,7 @@ package Game;
 
 import java.awt.event.MouseEvent;
 
+import Base.GameEnvironment;
 import Base.Player;
 
 public class GamePlayer extends Player{
@@ -29,13 +30,14 @@ public class GamePlayer extends Player{
     
     // マウスをドラッグした時(クリックしたまま動かす)
     public void mouseDragged(MouseEvent e){
-    	int mouseX = e.getX();
-    	int mouseY = e.getY();
+    	int mouseX = e.getX(); 
+    	int mouseY = e.getY() - this.environment.getBoardPosition();
     	dropMove(mouseX,mouseY);
     }
     
     // GameManagerのメソッドを呼び出してドロップを持つよ
 	public void dropHold(int mouseX,int mouseY) {
+		mouseY -= this.environment.getBoardPosition();
 	    this.manager.holdManagement(mouseX, mouseY);
 	}
 	

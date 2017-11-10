@@ -6,16 +6,19 @@ import java.awt.event.MouseEvent;
 import Base.GameEnvironment;
 import Base.Player;
 import Game.Manager.BoardManager;
+import Game.Manager.FieldManager;
 
 public class GamePlayer extends Player{
 
-	private BoardManager manager;
+	private BoardManager Bmanager;
+	private FieldManager Fmanager;
 	private GameEnvironment environment;
 	
-	public GamePlayer(BoardManager manager) {
+	public GamePlayer(BoardManager Bmanager, FieldManager Fmanager) {
 		super();
-		environment = new GameEnvironment();
-		this.manager = manager;
+		this.environment = new GameEnvironment();
+		this.Bmanager = Bmanager;
+		this.Fmanager = Fmanager;
 	}
 	
 	// マウスが押された時
@@ -40,26 +43,26 @@ public class GamePlayer extends Player{
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if ( e.getKeyCode() == KeyEvent.VK_ENTER ) {
-	    	System.out.println("enter");
+	    	this.Fmanager.ChangeText("aaaaaaa");
 	    }
 	}
     
     // GameManagerのメソッドを呼び出してドロップを持つよ
 	public void dropHold(int mouseX,int mouseY) {
 		mouseY -= this.environment.getBoardPosition();
-	    this.manager.holdManagement(mouseX, mouseY);
+	    this.Bmanager.holdManagement(mouseX, mouseY);
 	}
 	
 	// GameManagerのメソッドを呼び出してドロップを動かすよ
 	public void dropMove(int mouseX,int mouseY) {
-	   this.manager.MoveManagement(mouseX, mouseY);
+	   this.Bmanager.MoveManagement(mouseX, mouseY);
 	}
 	
 	// GameManagerのメソッドを呼び出してドロップを放すよ
 		public void dropLost() {
-			this.manager.dropDelete(this.manager.comboDicision());
+			this.Bmanager.dropDelete(this.Bmanager.comboDicision());
 			
-		    this.manager.LostManagement();
+		    this.Bmanager.LostManagement();
 		}
 	
 	

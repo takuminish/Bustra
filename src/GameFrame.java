@@ -5,5 +5,6 @@ import javax.swing.JFrame;
 public class GameFrame extends JFrame{
 	public GameFrame() {
 		super("Bustra!!");  // ƒ^ƒCƒgƒ‹‚ÍBustra!!‚¾‚æ
+		this.setSize(350, 600);
 	}
 }

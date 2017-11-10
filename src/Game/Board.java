@@ -21,24 +21,25 @@ public class Board extends Panel{
 	private GameEnvironment environment;
 	
 	// コンストラクタ
-	public Board() {
+	public Board() { 
 		environment = new GameEnvironment();
         this.width = environment.getBourdWidth();                // 盤面の横のドロップの数を取得するよ 
 	    this.height = environment.getBourdHeight();              // 盤面の縦のドロップの数を取得するよ
 		this.dropDiameter = environment.getDropDiameter();            // ドロップの大きさを取得するよ
     	 board = new ArrayList<ArrayList<Drop>>();        // Dropクラスの2次元配列を定義するよ
-    	 
+    	// this.setBounds(0, this.environment.getBoardPosition(), this.width * this.dropDiameter, this.height * this.dropDiameter);  // 指定した位置と大きさで盤面を表示するよ
+ 
     	 // 二重for文で二次元配列にDropクラスの子クラス(火、水、木、闇、光)を入れていくよ
     	 for (int k1 = 0; k1 < this.height; k1++) {
     		 this.board.add(new ArrayList<Drop>());       // Dropクラスの配列の中にDropクラスの配列を作るよ
     		 for (int k2 = 0; k2 < this.width; k2++) {
     			 // ランダムな値によってどのドロップにするか決めるよ
     			 switch(random()) {
-    			 case 0: this.board.get(k1).add(new FireDrop(k2 * this.dropDiameter, k1 * this.dropDiameter)); break;  // ランダムの値が0だったら火ドロップを格納するよ 
-    			 case 1: this.board.get(k1).add(new WaterDrop(k2 * this.dropDiameter, k1 * this.dropDiameter)); break; // ランダムの値が1だったら水ドロップを格納するよ   
-    			 case 2: this.board.get(k1).add(new WoodDrop(k2 * this.dropDiameter, k1 * this.dropDiameter)); break;  // ランダムの値が2だったら木ドロップを格納するよ
-    			 case 3: this.board.get(k1).add(new DarkDrop(k2 * this.dropDiameter, k1 * this.dropDiameter)); break;  // ランダムの値が3だったら闇ドロップを格納するよ
-    			 case 4: this.board.get(k1).add(new LightDrop(k2 * this.dropDiameter, k1 * this.dropDiameter)); break; // ランダムの値が4だったら光ドロップを格納するよ
+    			 case 0: this.board.get(k1).add(new FireDrop(30,30)); break;  // ランダムの値が0だったら火ドロップを格納するよ 
+    			 case 1: this.board.get(k1).add(new WaterDrop(30,30)); break; // ランダムの値が1だったら水ドロップを格納するよ   
+    			 case 2: this.board.get(k1).add(new WoodDrop(30,30)); break;  // ランダムの値が2だったら木ドロップを格納するよ
+    			 case 3: this.board.get(k1).add(new DarkDrop(30,30)); break;  // ランダムの値が3だったら闇ドロップを格納するよ
+    			 case 4: this.board.get(k1).add(new LightDrop(30,30)); break; // ランダムの値が4だったら光ドロップを格納するよ
     			 }
     		 }
     	 }
@@ -46,7 +47,6 @@ public class Board extends Panel{
 	// 盤面を表示するよ
 	@Override
 	public void paintComponent(Graphics g) {
-		
 		
 		this.setBounds(0, this.environment.getBoardPosition(), this.width * this.dropDiameter, this.height * this.dropDiameter);  // 指定した位置と大きさで盤面を表示するよ
 		for(int k1 = 0; k1 < this.height; k1++) {
@@ -64,6 +64,7 @@ public class Board extends Panel{
 		for(int k1 = 0; k1 < this.height; k1++) {
 			for (int k2 = 0; k2 < this.width; k2++) {
 				this.add(this.board.get(k1).get(k2));             // board[k1][k2]のDropを盤面に乗せるよ
+				this.board.get(k1).get(k2).setBounds(k2 * this.dropDiameter, k1 * this.dropDiameter, this.dropDiameter, this.dropDiameter);
 			}
 		}
 	}
@@ -118,7 +119,7 @@ public class Board extends Panel{
     	this.board.get(y1).set(x1,this.board.get(y2).get(x2)); 
     	this.board.get(y2).set(x2,tmp);
     	
-    	this.board.get(y1).get(x1).move(x1 * this.dropDiameter, y1 * this.dropDiameter);  // ドロップの移動を反映
+    	this.board.get(y1).get(x1).move(30, 30);  // ドロップの移動を反映
     }
     
  // 盤面のドロップを消すよ

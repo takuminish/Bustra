@@ -6,7 +6,7 @@ public class GameEnvironment {
 	private final int BOARDWIDTH = 6;      // 盤面の横のドロップの数を指定
 	private final int BOARDHEIGHT = 5;     // 盤面の縦のドロップの数を指定
 	private final int DROPDIAMETER = 60;   // ドロップの大きさを指定
-	private final int WINDOWWIDTH = 377;   // 画面の横の長さを指定するよ
+	private final int WINDOWWIDTH = 400;   // 画面の横の長さを指定するよ
 	private final int WINDOWHEIGHT = 600;  // 画面の縦の長さを指定するよ
 	private final int BOARDPOSITION = 260; // 盤面の位置を指定するよ 
 	

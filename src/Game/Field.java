@@ -16,15 +16,17 @@ public class Field extends Panel{
     public Field() {
 
 	    this.pisaro = new Pisaro();
-        this.add(this.pisaro);
         this.frame = new TextFrame();
         this.add(this.frame);
+        this.add(this.pisaro);
     }
-    
+    public void TextChange(String str) {
+    	this.frame.ChangeText(str);
+    }
     public void paintComponent(Graphics g) {
-    	g.setColor(Color.BLACK);
-    	g.fillRect(0, 0, getWidth(), getHeight());
-    	this.setBounds(0, 0, 377, 260);  // 指定した位置と大きさで盤面を表示するよ
+    	this.setBounds(0, 0, 360, 260);  // 指定した位置と大きさで盤面を表示するよ
+    //	g.setColor(Color.BLACK);
+    //	g.fillRect(0, 0, getWidth(), getHeight());
 
     }
 }

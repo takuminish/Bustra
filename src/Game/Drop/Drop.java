@@ -27,7 +27,7 @@ public class Drop extends Panel{
 		this.x = x;                                             // x座標を指定するよ
 		this.y = y;                                             // y座標を指定するよ
 		this.diameter = environment.getDropDiameter();
-		this.setBounds(this.x, this.y, this.diameter, this.diameter);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
+	//	this.setBounds(this.x, this.y, this.diameter, this.diameter);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ	
 	}
 	
 	// 画像をimage変数に入れる(画像ファイルを引数とする)
@@ -56,8 +56,8 @@ public class Drop extends Panel{
 	@Override
 	public void paintComponent(Graphics g) {
 		
-		this.setBounds(this.x, this.y, this.diameter, this.diameter);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
-		g.drawImage(this.image,0,0,this.getDiameter(),this.getDiameter(),null); //image変数の画像を表示するよ
+		this.setBounds(0, 0, this.diameter, this.diameter);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
+		g.drawImage(this.image,(this.x % 60) - 30,(this.y % 60) - 30,this.getDiameter(),this.getDiameter(),null); //image変数の画像を表示するよ
 	}
 	
 	// ドロップを削除するよ

@@ -10,4 +10,8 @@ public class FieldManager {
 		this.field = field;
 	
 	}
+	
+	public void ChangeText(String str) {
+		this.field.TextChange(str);
+	}
 }

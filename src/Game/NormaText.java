@@ -11,5 +11,9 @@ public class NormaText extends JLabel{
 		super(str);
     	this.setForeground(Color.WHITE);
 	}
+	
+	public void change(String str) {
+		this.setText(str);
+	}
 
 }

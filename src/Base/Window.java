@@ -15,6 +15,8 @@ public class Window extends JPanel{
 		super();
 		this.width = width;                          // 画面の横の大きさを指定するよ
 		this.height = height;                        // 画面の縦の大きさを指定するよ
-		this.setBounds(0,0,this.width,this.height);  // 画面を表示する位置と大きさを指定するよ
+		this.setDoubleBuffered(true);
+		setLayout(null);
+		//this.setBounds(0,0,this.width,this.height);  // 画面を表示する位置と大きさを指定するよ
 	}
 }

@@ -34,7 +34,7 @@ public class BoardManager {
 	public void holdManagement(int mouseX, int mouseY) {
 		this.dropX = mouseX / this.dropDiameter;  // マウスの座標から左から何番目のドロップなのかを取得
 		this.dropY = mouseY / this.dropDiameter;  // マウスの座標から上から何番目のドロップなのかを取得
-		board.getBoard().get(this.dropY).get(this.dropX).hold(mouseX - (this.dropDiameter / 2),mouseY - (this.dropDiameter / 2));  // ドロップを持つよ
+		board.getBoard().get(this.dropY).get(this.dropX).hold(mouseX ,mouseY);  // ドロップを持つよ
 		
 	}
 	
@@ -60,14 +60,14 @@ public class BoardManager {
 
 		this.dropX = board.getHoldDropX();  // 現在の持っているドロップのX座標を取ってくるよ
 		this.dropY = board.getHoldDropY();  // 現在の持っているドロップのY座標を取ってくるよ
-		board.getBoard().get(this.dropY).get(this.dropX).move(mouseX - (this.dropDiameter / 2),mouseY - (this.dropDiameter / 2));  // ドロップを動かすよ
+		board.getBoard().get(this.dropY).get(this.dropX).move(mouseX ,mouseY );  // ドロップを動かすよ
 		
 	}
 	
 	// 持っているドロップを放して適切な場所に置くよ
 	public void LostManagement() {
 
-		board.getBoard().get(this.dropY).get(this.dropX).lost(this.dropX * this.dropDiameter,this.dropY * this.dropDiameter);
+		board.getBoard().get(this.dropY).get(this.dropX).lost(30,30);
 			
 	}
 	

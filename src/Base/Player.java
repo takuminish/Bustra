@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
 // Panelクラスを継承し、マウス操作を可能にしたPlayerクラスを作るよ
-public class Player extends Panel implements MouseListener,MouseMotionListener, KeyListener{
+public class Player implements MouseListener,MouseMotionListener, KeyListener{
 	
 	// コンストラクタ
 	public Player() {

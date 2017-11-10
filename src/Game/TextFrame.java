@@ -16,7 +16,8 @@ public class TextFrame extends Panel{
 		File f = new File("image/DQ_frame.png");     // Fileクラスに枠の画像を入れるよ
 		this.image = Image(f);
 		this.text = new NormaText("<html>バスピサロが現れた。<br></html>");
-	//	this.add(this.text);
+		this.add(this.text);
+		this.text.setBounds(0,0,200,50);
 	}
 	public BufferedImage Image(File f) {
 		BufferedImage image = null;              // 最初はnullにしておくよ
@@ -35,8 +36,6 @@ public class TextFrame extends Panel{
 	}
 	
     public void paintComponent(Graphics g) {
-		this.setBounds(75,180,200,200);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
 		g.drawImage(this.image,0,0,200,50,null); //image変数の画像を表示するよ
-		System.out.println("ann");
     }
 }

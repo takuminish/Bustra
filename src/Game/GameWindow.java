@@ -35,6 +35,7 @@ public class GameWindow extends Window{
         this.add(this.board);            // 盤面をゲーム画面に乗せるよ
         this.add(this.field);            // 上の画面をゲーム画面に乗せるよ
         this.board.setBounds(0,300,300,300);
+        this.field.setBounds(0,0,300,300);
 
 	}
 	// ゲーム画面を表示するよ

@@ -39,7 +39,6 @@ public class Enemy extends Panel{
 
 		public void paintComponent(Graphics g) {
 			
-			this.setBounds(this.x, this.y, this.width, this.height);     // 指定したx,y座標と縦横の大きさから表示する位置を決めるよ
 			g.drawImage(this.image,0,0,this.width,this.height,null); //image変数の画像を表示するよ
 		}
 }

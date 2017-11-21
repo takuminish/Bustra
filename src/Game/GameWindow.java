@@ -11,36 +11,51 @@ import Base.GameEnvironment;
 import Game.Enemy.*;
 import Game.Manager.BoardManager;
 import Game.Manager.FieldManager;
+import Game.Thread.DropThread;
+import Game.Thread.SleepThread;
+
 // Windowクラスを継承したGameWindowクラスを作るよ
 // ゲーム画面を表示するクラスだよ(GameWindowクラスはBoardクラス、Fieldクラス、GameManagerクラスを持つ)
 public class GameWindow extends Window{
-	
+
 	private Board board;               // Boardクラスを持つよ
-	private BoardManager Bmanager;       // GameManagerクラスを持つよ
-	private FieldManager Fmanager;
-	private GamePlayer gamePlayer;     // GamePlayerクラスを持つよ
 	private Field field;
-	public GameWindow(int width,int height) {
+	private BoardManager Bmanager;
+	private FieldManager Fmanager;
+
+	public GameWindow(int width,int height,String deficult) {
 
 		super(width,height);	                  // ゲーム画面の大きさを指定するよ
-		field = new Field();
-		board = new Board();                              // 横6ドロップ、縦5ドロップ、ドロップの直径80の盤面を作るよ
-		Bmanager = new BoardManager(board);                            // GameManagerクラスを定義するよ
-		Fmanager = new FieldManager(field);
-		gamePlayer = new GamePlayer(Bmanager,Fmanager);           // GamePlayerクラスを定義するよ
-		addMouseListener(gamePlayer);            // MouseListenerを使えるようにするよ
-		addMouseMotionListener(gamePlayer);      // MouseMotionListenerを使えるようにするよ
-		addKeyListener(gamePlayer);      // MouseMotionListenerを使えるようにするよ
+		this.board = new Board();
+		this.field = new Field(3,deficult);
+		this.Bmanager = new BoardManager(this.board);
+		this.Fmanager = new FieldManager(this.field,3);
 		setFocusable(true);
-        this.add(this.board);            // 盤面をゲーム画面に乗せるよ
-        this.add(this.field);            // 上の画面をゲーム画面に乗せるよ
-        this.board.setBounds(0,300,300,300);
-        this.field.setBounds(0,0,300,300);
-
+		this.add(this.board);            // 盤面をゲーム画面に乗せるよ
+		this.add(this.field);            // 上の画面をゲーム画面に乗せるよ
+		this.board.setBounds(GameEnvironment.BOARDX,GameEnvironment.BOARDY,GameEnvironment.BOARDWIDTH * GameEnvironment.DROPDIAMETER,GameEnvironment.BOARDHEIGHT * GameEnvironment.DROPDIAMETER);
+		this.field.setBounds(GameEnvironment.FIELDX,GameEnvironment.FIELDY,GameEnvironment.FIELDWIDTH,GameEnvironment.FIELDHEIGHT);
 	}
 	// ゲーム画面を表示するよ
 	@Override
-    public void paint(Graphics g){
-        super.paint(g);
-    }
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+	}
+
+	public void dropHold(int mouseX,int mouseY) {
+		mouseY -= GameEnvironment.BOARDY;
+		this.Bmanager.holdManagement(mouseX, mouseY);
+	}
+
+	// GameManagerのメソッドを呼び出してドロップを動かすよ
+	public void dropMove(int mouseX,int mouseY) {
+		mouseY -= GameEnvironment.BOARDY;
+		this.Bmanager.MoveManagement(mouseX, mouseY);
+	}
+
+	// GameManagerのメソッドを呼び出してドロップを放すよ
+	public void dropLost() {
+		this.Bmanager.LostManagement();
+		this.Bmanager.comboDicision(() ->  this.Fmanager.DamageDecision(this.Bmanager.getCombo()));
+	}
 }

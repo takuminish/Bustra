@@ -5,14 +5,15 @@ import java.awt.Graphics;
 
 import javax.swing.JLabel;
 
-public class NormaText extends JLabel{
+public class Text extends JLabel{
 
-	public NormaText(String str) {
+	public Text(String str) {
 		super(str);
     	this.setForeground(Color.WHITE);
 	}
 	
 	public void change(String str) {
+		
 		this.setText(str);
 	}
 
